@@ -5,11 +5,14 @@ Input is integer array
 and output is a string.
 
 ```
-1. Input: [1]
-  Output: "1"
-
-2. Input: []
+0. Input: []
   Output: ""
+
+1. Input: null
+  Output: ""
+
+2. Input: [1]
+  Output: "1"
 
 3. Input: [1, 2, 3]
   Output: "1-3"
@@ -41,20 +44,34 @@ X. Input: [29, 30, 31, 32]
 Calcuate fuel consumption rate per fill-up in Kilometers per Liter unit. Assume that all fill-ups are full tank.
 
 ### Fill-Up Records
-| No | Odometer | Liters    | Full? | KmL
+| No | Odometer |  Liters   | Full? | KmL
 | -- | -------- | --------- | ----- | ---
 | 1  | 1000     |   50.00   | Yes   | 
 | 2  | 1600     |   60.00   | Yes   | 
 | 3  | 2200     |   50.00   | Yes   | 
 | 4  | 2600     |   54.98   | Yes   | 
 
-### Fill-Up Records in CSV
+### Fillups.csv - Fill-Up Records in CSV
 ```
-No,Date,Odometer,Liters,IsFull
-1,2017-01-01,35000,52.991,True
-2,2017-01-07,35422,50.182,True
-3,2017-01-12,36003,64.444,True
+No,Date,Odometer,Liters,IsFull,KmL
+1,2017-01-01,35000,52.991,True,8.41
+2,2017-01-07,35422,50.182,True,9.02
+3,2017-01-12,36003,64.444,True,9.15
 4,2017-01-14,36395,42.833,True
+```
+
+Uses [CsvHelper](https://joshclose.github.io/CsvHelper/) 
+to read `FillUps.csv` file into strongly-typed list (`List<FillUpData>`).
+Install CsvHelper via [NuGet](https://www.nuget.org/packages/CsvHelper/3.0.0-chi05)
+```
+  public class FillUpData {
+    public int No { get; set; }
+    public DateTime Date { get; set; }
+    public int Odometer { get; set; }
+    public double Liters { get; set; }
+    public bool IsFull { get; set; }
+    public double? KmL { get; set; }
+  }
 ```
 
 ## III. Online Shop with Partners
