@@ -30,7 +30,7 @@ and output is a string.
   Output: "1 and 5-6"
 
 8. Input: [1, 5, 5, 6, 7, 2, 15, 16, 17]  
-  Output: "1-2 and 5-7 and 15-17"
+  Output: "1-2, 5-7 and 15-17"
  
 9. Input: [0, 1]
   Output: Throws InvalidDayException
